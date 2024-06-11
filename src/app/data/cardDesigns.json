@@ -1,0 +1,38 @@
+[
+  {
+      "id": "design1",
+      "html": "<div class='p-4 h-24 w-36 bg-blue-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design2",
+      "html": "<div class='p-4 h-24 w-36 bg-yellow-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design3",
+      "html": "<div class='p-4 h-24 w-36 bg-green-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design4",
+      "html": "<div class='p-4 h-24 w-36 bg-red-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design5",
+      "html": "<div class='p-4 h-24 w-36 bg-purple-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design6",
+      "html": "<div class='p-4 h-24 w-36 bg-indigo-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design7",
+      "html": "<div class='p-4 h-24 w-36 bg-pink-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design8",
+      "html": "<div class='p-4 h-24 w-36 bg-gray-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  },
+  {
+      "id": "design9",
+      "html": "<div class='p-4 h-24 w-36 bg-orange-100'><div class='flex h-full'><div class='w-2/3 p-2'><h2 class='text-xl font-bold'>{{name}}</h2><p class='text-sm mb-1'>{{jobTitle}}</p><p class='text-xs mb-1'>{{address}}</p><p class='text-xs mb-1'>{{email}}</p><p class='text-xs mb-1'>{{phone}}</p></div></div></div>"
+  }
+]
