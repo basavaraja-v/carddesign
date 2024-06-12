@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Masonry } from 'react-plock';
 import BusinessCard from './BusinessCard';
 import cardDesigns from '../data/cardDesigns.json';
 
@@ -9,7 +10,7 @@ interface CardDisplayProps {
         address: string;
         email: string;
         phone: string;
-        image: string;
+        image: string | ArrayBuffer | null;
     };
 }
 
@@ -20,12 +21,22 @@ const CardDisplay: React.FC<CardDisplayProps> = ({ data }) => {
         setDesigns(cardDesigns);
     }, []);
 
+    const renderCard = (design: any, idx: number) => {
+        return (
+            <BusinessCard key={design.id} data={data} html={design.html} />
+        );
+    };
+
     return (
-        <div className="grid grid-cols-3 gap-2">
-            {designs.map((design) => (
-                <BusinessCard key={design.id} data={data} html={design.html} />
-            ))}
-        </div>
+        <Masonry
+            items={designs}
+            render={(design, idx) => renderCard(design, idx)}
+            config={{
+                columns: [1, 2, 2],
+                gap: [6, 6, 6],
+                media: [640, 768, 1024],
+            }}
+        />
     );
 };
 

@@ -45,9 +45,9 @@ const Hero = () => {
                 <meta name="description" content="Designing an effective business card involves several key elements that work together to create a professional and memorable representation of an individual or business." />
             </Head>
 
-            <div className="flex flex-col lg:flex-row justify-between px-4 py-16 bg-gray-100 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row justify-between px-4 py-16 bg-gray-100 sm:px-6 lg:px-8">
                 {/* Left Section */}
-                <div className="flex-1 mb-8 lg:mb-0 lg:max-w-2xl">
+                <div className="flex-1 mb-8 sm:mb-0 sm:max-w-md lg:max-w-2xl">
                     <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl relative">
                         Design an Effective
                         <span className="block relative bg-gradient-to-r from-indigo-800 to-green-500 text-transparent bg-clip-text">
@@ -64,11 +64,11 @@ const Hero = () => {
                 </div>
 
                 {/* Right Section (Deck of Cards) */}
-                <div className="relative flex-1">
+                <div className="relative flex-1 flex-wrap justify-center sm:justify-start hidden sm:block">
                     {cards.map((card, index) => (
                         <div
                             key={index}
-                            className={`absolute transform ${card.rotation} ${card.style} shadow-lg rounded-lg overflow-hidden w-72 h-40`}
+                            className={`absolute transform ${card.rotation} ${card.style} shadow-lg rounded-lg overflow-hidden w-full sm:w-72 h-40 md:w-64`}
                             style={{ top: card.top, left: card.left }}
                         >
                             <div className="px-4 py-6">

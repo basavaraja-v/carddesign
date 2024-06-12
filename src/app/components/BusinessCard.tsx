@@ -41,12 +41,12 @@ const BusinessCard: React.FC<BusinessCardProps> = ({ data, html }) => {
         <div className="relative">
             <div ref={cardRef} dangerouslySetInnerHTML={{ __html: renderedHTML }} />
             <button
-                className="absolute top-2 right-2 bg-transparent text-white px-2 py-1 rounded-md hover:bg-blue-600 hover:bg-opacity-20"
+                className="absolute top-2 right-2 bg-transparent text-white px-2 py-1 rounded-md bg-gray-600 hover:bg-blue-600 hover:bg-opacity-20"
                 onClick={handleDownload}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="#00000" />
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="#ffff" />
                 </svg>
             </button>
 

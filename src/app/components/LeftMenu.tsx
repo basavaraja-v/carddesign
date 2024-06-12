@@ -22,7 +22,7 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ onChange }) => {
         address: '1234 Main Street, Anytown, USA',
         email: 'john.doe@email.com',
         phone: '123-456-7890',
-        image: 'https://i1.pickpik.com/photos/516/857/262/smile-profile-face-male-preview.jpg',
+        image: 'profile.png',
     });
     const [cropData, setCropData] = useState('');
     const [cropper, setCropper] = useState<any>();
@@ -104,7 +104,7 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ onChange }) => {
                     placeholder="123-456-7890"
                 />
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Profile Picture</label>
                 <input
                     type="file"
@@ -134,7 +134,7 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ onChange }) => {
                         Crop Image
                     </button>
                 </div>
-            )}
+            )} */}
         </div>
     );
 };
