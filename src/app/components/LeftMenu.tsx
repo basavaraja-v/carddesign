@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Cropper from 'react-cropper';
+import 'cropperjs/dist/cropper.css';
 
 interface LeftMenuProps {
     onChange: (data: CardData) => void;
@@ -10,6 +12,7 @@ interface CardData {
     address: string;
     email: string;
     phone: string;
+    image: string | ArrayBuffer | null;
 }
 
 const LeftMenu: React.FC<LeftMenuProps> = ({ onChange }) => {
@@ -19,11 +22,33 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ onChange }) => {
         address: '1234 Main Street, Anytown, USA',
         email: 'john.doe@email.com',
         phone: '123-456-7890',
+        image: 'https://i1.pickpik.com/photos/516/857/262/smile-profile-face-male-preview.jpg',
     });
+    const [cropData, setCropData] = useState('');
+    const [cropper, setCropper] = useState<any>();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, key: keyof CardData) => {
         setFormData({ ...formData, [key]: e.target.value });
-        onChange({ ...formData, [key]: e.target.value }); // Notify parent component of change
+        onChange({ ...formData, [key]: e.target.value });
+    };
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setFormData({ ...formData, image: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const getCropData = () => {
+        if (typeof cropper !== 'undefined') {
+            setCropData(cropper.getCroppedCanvas().toDataURL());
+            setFormData({ ...formData, image: cropper.getCroppedCanvas().toDataURL() });
+            onChange({ ...formData, image: cropper.getCroppedCanvas().toDataURL() });
+        }
     };
 
     return (
@@ -79,6 +104,37 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ onChange }) => {
                     placeholder="123-456-7890"
                 />
             </div>
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Profile Picture</label>
+                <input
+                    type="file"
+                    onChange={handleImageUpload}
+                    className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                />
+            </div>
+            {formData.image && (
+                <div className="mb-4">
+                    <Cropper
+                        src={formData.image as string}
+                        style={{ height: 200, width: '100%' }}
+                        initialAspectRatio={1}
+                        aspectRatio={1}
+                        guides={false}
+                        cropBoxResizable={false}
+                        cropBoxMovable={false}
+                        dragMode="move"
+                        crop={getCropData}
+                        onInitialized={(instance: any) => setCropper(instance)}
+                    />
+                    <button
+                        type="button"
+                        onClick={getCropData}
+                        className="mt-2 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                        Crop Image
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

@@ -1,6 +1,42 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
+const cards = [
+    {
+        name: "John Doe",
+        title: "Graphic Designer",
+        address: "1234 Main Street, Anytown, USA",
+        email: "john.doe@email.com",
+        phone: "123-456-7890",
+        style: "bg-yellow-100",
+        rotation: "rotate-12",
+        top: "10%",
+        left: "10%"
+    },
+    {
+        name: "Jane Smith",
+        title: "Web Developer",
+        address: "5678 Elm Street, Somewhere City, USA",
+        email: "jane.smith@email.com",
+        phone: "987-654-3210",
+        style: "bg-blue-100",
+        rotation: "-rotate-6",
+        top: "10%",
+        left: "50%"
+    },
+    {
+        name: "Tom Johnson",
+        title: "Marketing Manager",
+        address: "7890 Oak Avenue, Anywhere Town, USA",
+        email: "tom.johnson@email.com",
+        phone: "555-123-4567",
+        style: "bg-green-100",
+        rotation: "rotate-3",
+        top: "50%",
+        left: "30%"
+    }
+];
+
 const Hero = () => {
     return (
         <>
@@ -15,7 +51,7 @@ const Hero = () => {
                     <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl relative">
                         Design an Effective
                         <span className="block relative bg-gradient-to-r from-indigo-800 to-green-500 text-transparent bg-clip-text">
-                            Business Card <span className="underline">faster than ever</span>
+                            Business Card faster than ever
                         </span>
                     </h1>
                     <p className="mt-4 text-lg text-gray-500">
@@ -27,40 +63,23 @@ const Hero = () => {
                     </Link>
                 </div>
 
-                {/* Right Section (Scattered Cards) */}
+                {/* Right Section (Deck of Cards) */}
                 <div className="relative flex-1">
-                    {/* Card 1 */}
-                    <div className="absolute transform rotate-12 bg-yellow-100 shadow-lg rounded-lg overflow-hidden w-72 h-40" style={{ top: '10%', left: '10%' }}>
-                        <div className="px-4 py-6">
-                            <h2 className="text-lg font-bold text-gray-800">John Doe</h2>
-                            <p className="text-sm text-gray-600 mb-2">Graphic Designer</p>
-                            <p className="text-sm text-gray-600 mb-2">1234 Main Street, Anytown, USA</p>
-                            <p className="text-sm text-gray-600 mb-2">john.doe@email.com</p>
-                            <p className="text-sm text-gray-600 mb-2">123-456-7890</p>
+                    {cards.map((card, index) => (
+                        <div
+                            key={index}
+                            className={`absolute transform ${card.rotation} ${card.style} shadow-lg rounded-lg overflow-hidden w-72 h-40`}
+                            style={{ top: card.top, left: card.left }}
+                        >
+                            <div className="px-4 py-6">
+                                <h2 className="text-lg font-bold text-gray-800">{card.name}</h2>
+                                <p className="text-sm text-gray-600 mb-2">{card.title}</p>
+                                <p className="text-sm text-gray-600 mb-2">{card.address}</p>
+                                <p className="text-sm text-gray-600 mb-2">{card.email}</p>
+                                <p className="text-sm text-gray-600 mb-2">{card.phone}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    {/* Card 2 */}
-                    <div className="absolute transform -rotate-6 bg-blue-100 shadow-lg rounded-lg overflow-hidden w-72 h-40" style={{ top: '10%', left: '50%' }}>
-                        <div className="px-4 py-6">
-                            <h2 className="text-lg font-bold text-gray-800">Jane Smith</h2>
-                            <p className="text-sm text-gray-600 mb-2">Web Developer</p>
-                            <p className="text-sm text-gray-600 mb-2">5678 Elm Street, Somewhere City, USA</p>
-                            <p className="text-sm text-gray-600 mb-2">jane.smith@email.com</p>
-                            <p className="text-sm text-gray-600 mb-2">987-654-3210</p>
-                        </div>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="absolute transform rotate-3 bg-green-100 shadow-lg rounded-lg overflow-hidden w-72 h-40" style={{ top: '50%', left: '30%' }}>
-                        <div className="px-4 py-6">
-                            <h2 className="text-lg font-bold text-gray-800">Tom Johnson</h2>
-                            <p className="text-sm text-gray-600 mb-2">Marketing Manager</p>
-                            <p className="text-sm text-gray-600 mb-2">7890 Oak Avenue, Anywhere Town, USA</p>
-                            <p className="text-sm text-gray-600 mb-2">tom.johnson@email.com</p>
-                            <p className="text-sm text-gray-600 mb-2">555-123-4567</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </>

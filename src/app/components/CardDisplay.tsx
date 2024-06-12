@@ -9,6 +9,7 @@ interface CardDisplayProps {
         address: string;
         email: string;
         phone: string;
+        image: string;
     };
 }
 
